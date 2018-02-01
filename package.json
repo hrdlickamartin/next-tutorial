@@ -1,23 +1,23 @@
 {
-  "name": "lmc-react",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start",
-    "deps": "rimraf node_modules yarn.lock flow-typed/npm && yarn && flow-typed install"
-  },
-  "dependencies": {
-    "isomorphic-unfetch": "^2.0.0",
-    "next": "^4.2.3",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "validator": "^9.4.0"
-  },
-  "devDependencies": {
-    "flow-bin": "^0.64.0",
-    "flow-typed": "^2.3.0"
-  }
+    "name": "lmc-react",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "dev": "next",
+        "build": "next build",
+        "start": "next start",
+        "deps": "rimraf node_modules yarn.lock flow-typed/npm && yarn && flow-typed install"
+    },
+    "dependencies": {
+        "isomorphic-unfetch": "^2.0.0",
+        "next": "^4.2.3",
+        "react": "^16.2.0",
+        "react-dom": "^16.2.0",
+        "validator": "^9.4.0"
+    },
+    "devDependencies": {
+        "flow-bin": "^0.64.0",
+        "flow-typed": "^2.3.0"
+    }
 }
