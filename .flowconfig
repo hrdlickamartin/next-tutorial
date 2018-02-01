@@ -1,0 +1,20 @@
+[ignore]
+.*/node_modules/npmconf/.*
+.*/node_modules/bcryptjs/.*
+.*/node_modules/config-chain/.*
+
+[untyped]
+; https://github.com/facebook/draft-js/issues/1496#issuecomment-353895318
+.*/node_modules/draft-js/lib/DraftEditor.react.js.flow
+; https://github.com/facebook/draft-js/issues/1621
+.*/node_modules/draft-js/lib/ContentBlock.js.flow
+.*/node_modules/draft-js/lib/ContentBlockNode.js.flow
+
+[include]
+
+[lints]
+all=error
+unclear-type=off
+
+[options]
+include_warnings=true
