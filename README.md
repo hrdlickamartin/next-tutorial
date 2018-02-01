@@ -1,5 +1,7 @@
 # next-tutorial
 
+yarn install - inicialiace projektu
+
 Instalace
 yarn init - vytvoří package json
 yarn add next react react-dom - nainstaluje

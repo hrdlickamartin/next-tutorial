@@ -6,7 +6,12 @@ class MainNav extends React.Component<{}> {
   render() {
     return (
       <div>
-        <Link href="/index">Home</Link> <Link href="/about">About</Link>
+        <Link href="/index">
+          <a>Home</a>
+        </Link>{" "}
+        <Link href="/about">
+          <a>About</a>
+        </Link>
       </div>
     );
   }

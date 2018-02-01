@@ -59,6 +59,11 @@ class Index extends React.Component<Props, State> {
 
   handleFormSubmit = (e: *) => {
     e.preventDefault();
+    // validate !
+    const variables = {
+      email: this.state.email,
+      password: this.state.password
+    };
   };
 
   render() {
@@ -68,7 +73,7 @@ class Index extends React.Component<Props, State> {
         <Text>Login or Signun</Text>
         <form onSubmit={this.handleFormSubmit}>
           <TextInput
-            name="text"
+            name="email"
             value={this.state.email}
             onChange={email => this.setState({ email })}
           />
