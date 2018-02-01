@@ -15,3 +15,5 @@ import { exp } from “..”
 getInitialProps - Načte data ze server side rendering
 
 <Hello name=“Kitty” fn=/>
+
+EsLint - pravidla pro psani JS
