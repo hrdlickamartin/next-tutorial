@@ -6,6 +6,7 @@ import TextInput from '../components/TextInput';
 import Button from '../components/Button';
 import { validateEmailPassword } from '../backend/validation';
 import * as validation from '../backend/validation';
+import { ValidationError } from '../components/validationError';
 
 type Props = {|
   stars: number,
@@ -26,17 +27,6 @@ const initialState = {
   password: '',
   validationErrors: {},
 };
-
-type ValidationErrorProps = {
-  error: ?validation.ValidationError,
-};
-
-class ValidationMessage extends React.PureComponent<ValidationErrorProps> {
-  render() {
-    if (!this.props.error) return null;
-    return JSON.stringify(this.props.error);
-  }
-}
 
 class Index extends React.Component<Props, State> {
   // static getInitialProps({}) {
@@ -99,13 +89,13 @@ class Index extends React.Component<Props, State> {
       <Page>
         <Text>Login or Signun</Text>
         <form onSubmit={this.handleFormSubmit}>
-          <ValidationMessage error={validationErrors.email} />
+          <ValidationError error={validationErrors.email} />
           <TextInput
             name="text"
             value={this.state.email}
             onChange={email => this.setState({ email })}
           />
-          <ValidationMessage error={validationErrors.password} />
+          <ValidationError error={validationErrors.password} />
           <TextInput
             name="password"
             value={this.state.password}
