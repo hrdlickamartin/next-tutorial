@@ -1,3 +1,6 @@
+// $FlowFixMe
+require('babel-register');
+
 const { GraphQLServer } = require('graphql-yoga');
 const { Prisma } = require('prisma-binding');
 const resolvers = require('./resolvers');
