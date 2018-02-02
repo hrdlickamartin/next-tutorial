@@ -67,6 +67,26 @@ Pokud v appce dojde ke změně je třeba ji přebuildovat pomocí restartu servi
 $ pm2 restart all
 ```
 
+## Prisma
+```
+$ npm install -g prisma
+$ prisma init hello-world
+prisma deploy
+```
+
+Při initu test vybrat
+- druhou moznost
+- zases druhou advance-node
+
+```
+cd test
+yarn dev
+
+yarn add babel-plugin-transform-flow-strip-types
+yarn add babel-plugin-transform-object-rest-spread
+yarn add babel-preset-env
+yarn add babel-register
+```
 ## Poznámky
 import exp from “/packages” - exp musí být default - export default exp jinak
 import { exp } from “..”
