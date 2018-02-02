@@ -30,6 +30,7 @@ ssh root@ip-address
 ```
 - instalace apache
 - instalace node, npm
+- instalace ssh
 
 ##### check:
 - node -v, npm -v
@@ -41,7 +42,7 @@ nahrát vytvořený projekt, do této cesty
 ```
 ##### nastavit vhosts:
 standatní cesta pro vhosts.
-- Pozor již býva default přednastavený označení 000_XXX.conf
+- Pozor již býva default přednastavený označení 000_default.conf
 ```
 /etc/apache2/sites-available
 $ vim react.conf
@@ -66,6 +67,13 @@ Pokud v appce dojde ke změně je třeba ji přebuildovat pomocí restartu servi
 ```
 $ pm2 restart all
 ```
+
+#### Vytvoření pipeline
+- Vygenerovat na bitbucketu private a public key.
+- uložit fingerprint mezi zname hosty
+- public key ulozit na remote server do ~/etc/ssh/authorized_keys
+
+
 
 ## Prisma
 ```
