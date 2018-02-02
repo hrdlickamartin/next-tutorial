@@ -28,7 +28,7 @@ ssh: id_rsa
 ```
 ssh root@ip-address
 ```
-- instalace apache
+- instalace apache (neni nutna, vytvorit pripadne slozku pro www rucne)
 - instalace node, npm
 - instalace ssh
 
@@ -60,6 +60,7 @@ využijeme pm2, který udrží proces při životě
 ```
 $ npm install -g pm2
 $ pm2 start start.sh
+$ pm2 start start-dev.sh
 ```
 
 ##### Restart po změně kodu:
@@ -73,8 +74,11 @@ $ pm2 restart all
 - uložit fingerprint mezi zname hosty
 - public key ulozit na remote server do ~/.ssh/authorized_keys
 - nahrat artefact na remote server
-
-
+- reload pm2, aby nacetla a zbuilila appku
+```
+$ scp -r * root@188.166.116.115:/var/www/html/react
+$ ssh root@188.166.116.115 pm2 restart all
+```
 
 ## Prisma
 ```
