@@ -17,7 +17,8 @@ pipelines:
     master:
       - step:
           script:
-            - npm install
-            - npm test
-            - scp -r dist root@188.166.116.115:/var/www/html/react/
+            #- npm install
+            #- npm test
+            #- ssh root@188.166.116.115 ls -l /var/www/html/react
+            - scp -r dist root@188.166.116.115:/var/www/html/react
             - pm2 restart all
