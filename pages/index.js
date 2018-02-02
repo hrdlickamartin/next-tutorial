@@ -1,23 +1,42 @@
 // @flow
-import * as React from "react";
-import Page from "../components/Page";
-import Text from "../components/Text";
-import TextInput from "../components/TextInput";
-import Button from "../components/Button";
+import * as React from 'react';
+import Page from '../components/Page';
+import Text from '../components/Text';
+import TextInput from '../components/TextInput';
+import Button from '../components/Button';
+import { validateEmailPassword } from '../backend/validation';
+import * as validation from '../backend/validation';
 
 type Props = {|
-  stars: number
+  stars: number,
+|};
+
+type Fields = {|
+  email: string,
+  password: string,
 |};
 
 type State = {|
-  email: string,
-  password: string
+  ...Fields,
+  validationErrors: validation.ValidationErrors<Fields>,
 |};
 
 const initialState = {
-  email: "",
-  password: ""
+  email: '',
+  password: '',
+  validationErrors: {},
 };
+
+type ValidationErrorProps = {
+  error: ?validation.ValidationError,
+};
+
+class ValidationMessage extends React.PureComponent<ValidationErrorProps> {
+  render() {
+    if (!this.props.error) return null;
+    return JSON.stringify(this.props.error);
+  }
+}
 
 class Index extends React.Component<Props, State> {
   // static getInitialProps({}) {
@@ -55,28 +74,38 @@ class Index extends React.Component<Props, State> {
   //   clearInterval(this.interval);
   // }
 
-  onButtonClick = () => console.log("Hello world");
+  onButtonClick = () => console.log('Hello world');
 
-  handleFormSubmit = (e: *) => {
+  handleFormSubmit = (e: SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // validate !
     const variables = {
       email: this.state.email,
-      password: this.state.password
+      password: this.state.password,
     };
+
+    const validationErrors = validation.validateEmailPassword(variables);
+    if (validationErrors) {
+      this.setState({ validationErrors });
+      return;
+    }
+    this.setState(initialState);
   };
 
   render() {
+    const { validationErrors } = this.state;
     //return <div>Seconds: {this.props.now}</div>;
+    // this.state.validationError.email;
     return (
       <Page>
         <Text>Login or Signun</Text>
         <form onSubmit={this.handleFormSubmit}>
+          <ValidationMessage error={validationErrors.email} />
           <TextInput
-            name="email"
+            name="text"
             value={this.state.email}
             onChange={email => this.setState({ email })}
           />
+          <ValidationMessage error={validationErrors.password} />
           <TextInput
             name="password"
             value={this.state.password}

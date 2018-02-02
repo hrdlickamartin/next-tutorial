@@ -31,7 +31,7 @@ ssh root@ip-address
 - instalace apache
 - instalace node, npm
 
-##### check: 
+##### check:
 - node -v, npm -v
 
 ##### upload projektu:
@@ -40,12 +40,12 @@ nahrát vytvořený projekt, do této cesty
 /var/www/html/react
 ```
 ##### nastavit vhosts:
-standatní cesta pro vhosts. 
+standatní cesta pro vhosts.
 - Pozor již býva default přednastavený označení 000_XXX.conf
 ```
 /etc/apache2/sites-available
 $ vim react.conf
-$ restart service apache2 restart 
+$ restart service apache2 restart
 ```
 ##### Spustit projekt na vzdáleném serveru:
 možnost jako na localu, ale musím být pořát připojený
@@ -77,5 +77,6 @@ getInitialProps - Načte data ze server side rendering
 
 EsLint - pravidla pro psani JS
 
-
-
+type Props = {|
+  stars: number,
+|} - exact object types znamena ze objekt neni dale rozsiritelny
