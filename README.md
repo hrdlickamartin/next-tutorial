@@ -71,7 +71,8 @@ $ pm2 restart all
 #### Vytvoření pipeline
 - Vygenerovat na bitbucketu private a public key.
 - uložit fingerprint mezi zname hosty
-- public key ulozit na remote server do ~/etc/ssh/authorized_keys
+- public key ulozit na remote server do ~/.ssh/authorized_keys
+- nahrat artefact na remote server
 
 
 
